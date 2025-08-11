@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://wkvhhwfpjeb8"]
+
+[ext_resource type="PackedScene" uid="uid://jdt8vpo4ias0" path="res://scenes/player/player.tscn" id="1_gs5et"]
+[ext_resource type="Material" uid="uid://j18i67cwsoi1" path="res://assets/2D/material/floor.tres" id="2_vefei"]
+[ext_resource type="Material" uid="uid://bq15k4ijjp054" path="res://assets/2D/material/env_detail.tres" id="3_se05g"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gs5et"]
+sky_top_color = Color(0.266014, 0.453887, 0.697555, 1)
+sky_horizon_color = Color(0.56892, 0.664575, 0.784598, 1)
+ground_bottom_color = Color(0.215921, 0.164842, 0.0960486, 1)
+ground_horizon_color = Color(0.466251, 0.570176, 0.704058, 1)
+
+[sub_resource type="Sky" id="Sky_vefei"]
+sky_material = SubResource("ProceduralSkyMaterial_gs5et")
+
+[sub_resource type="Environment" id="Environment_evawa"]
+background_mode = 2
+sky = SubResource("Sky_vefei")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="TestLevel" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_gs5et")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.105806, 0, -3.2156)
+
+[node name="env" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
+environment = SubResource("Environment_evawa")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="env"]
+transform = Transform3D(-0.866025, -0.353553, 0.353553, 2.98023e-08, 0.707107, 0.707107, -0.5, 0.612372, -0.612372, 0, 6, 0)
+shadow_enabled = true
+
+[node name="map" type="Node3D" parent="."]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="map"]
+use_collision = true
+
+[node name="floor" type="CSGBox3D" parent="map/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(32, 1, 32)
+material = ExtResource("2_vefei")
+
+[node name="crate" type="CSGBox3D" parent="map/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1, 4.5)
+size = Vector3(3, 2, 5)
+material = ExtResource("3_se05g")
+
+[node name="crate4" type="CSGBox3D" parent="map/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1.5, -2.5)
+size = Vector3(3, 3, 3)
+material = ExtResource("3_se05g")
+
+[node name="crate3" type="CSGBox3D" parent="map/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.75, -3.5)
+size = Vector3(3, 0.5, 5)
+material = ExtResource("3_se05g")
+
+[node name="crate2" type="CSGBox3D" parent="map/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.5, 0.5, 5.5)
+size = Vector3(3, 1, 6)
+material = ExtResource("3_se05g")

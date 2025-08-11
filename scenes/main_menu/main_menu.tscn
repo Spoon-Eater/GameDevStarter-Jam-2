@@ -1,0 +1,133 @@
+[gd_scene load_steps=7 format=3 uid="uid://40soej7f0nwr"]
+
+[ext_resource type="Script" uid="uid://eygdyggcbuc6" path="res://scenes/main_menu/main_menu.gd" id="1_0ebjn"]
+[ext_resource type="FontFile" uid="uid://co1v2m681r07b" path="res://assets/2D/font.ttf" id="1_fsom3"]
+[ext_resource type="LabelSettings" uid="uid://d0wbwr1lq3sn7" path="res://assets/2D/tres/text.tres" id="2_ob46e"]
+[ext_resource type="Script" uid="uid://5xtjx0qjngve" path="res://scenes/main_menu/menus_manager.gd" id="2_uqeha"]
+[ext_resource type="Texture2D" uid="uid://db56ammxq0g1t" path="res://assets/2D/bg/IMG_20250623_221408.jpg" id="5_wem23"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ob46e"]
+font = ExtResource("1_fsom3")
+font_size = 35
+outline_color = Color(0, 0, 0, 1)
+
+[node name="main_menu" type="Node"]
+script = ExtResource("1_0ebjn")
+
+[node name="menus_manager" type="Node" parent="."]
+script = ExtResource("2_uqeha")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="bg" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_wem23")
+expand_mode = 2
+
+[node name="main" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -282.0
+offset_top = -210.0
+offset_right = 282.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 75
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/main/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="title" type="Label" parent="CanvasLayer/main/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Game Name"
+label_settings = ExtResource("2_ob46e")
+horizontal_alignment = 1
+
+[node name="play" type="Button" parent="CanvasLayer/main/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_fsom3")
+theme_override_font_sizes/font_size = 25
+text = "Play"
+
+[node name="option" type="Button" parent="CanvasLayer/main/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_fsom3")
+theme_override_font_sizes/font_size = 25
+text = "Options"
+
+[node name="quit" type="Button" parent="CanvasLayer/main/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_fsom3")
+theme_override_font_sizes/font_size = 25
+text = "Quit"
+
+[node name="options" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -163.0
+offset_top = -36.0
+offset_right = 163.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/options/VBoxContainer"]
+layout_mode = 2
+text = "Mouse sensitivity"
+label_settings = SubResource("LabelSettings_ob46e")
+horizontal_alignment = 1
+
+[node name="sensitivity" type="HSlider" parent="CanvasLayer/options/VBoxContainer"]
+layout_mode = 2
+min_value = 0.05
+max_value = 0.25
+step = 0.01
+value = 0.1
+scrollable = false
+
+[node name="back" type="Button" parent="CanvasLayer/options/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_fsom3")
+theme_override_font_sizes/font_size = 25
+text = "Back"
+
+[connection signal="pressed" from="CanvasLayer/main/MarginContainer/VBoxContainer/play" to="." method="play"]
+[connection signal="pressed" from="CanvasLayer/main/MarginContainer/VBoxContainer/option" to="menus_manager" method="_on_option_pressed"]
+[connection signal="pressed" from="CanvasLayer/main/MarginContainer/VBoxContainer/quit" to="." method="quit"]
+[connection signal="value_changed" from="CanvasLayer/options/VBoxContainer/sensitivity" to="." method="_on_sensitivity_value_changed"]
+[connection signal="pressed" from="CanvasLayer/options/VBoxContainer/back" to="menus_manager" method="_on_back_pressed"]

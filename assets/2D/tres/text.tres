@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://d0wbwr1lq3sn7"]
+
+[ext_resource type="FontFile" uid="uid://co1v2m681r07b" path="res://assets/2D/font.ttf" id="1_f4kyk"]
+
+[resource]
+font = ExtResource("1_f4kyk")
+font_size = 46
+outline_color = Color(0, 0, 0, 1)
