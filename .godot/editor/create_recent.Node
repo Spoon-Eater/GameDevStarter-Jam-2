@@ -1,3 +1,5 @@
+MeshInstance3D
+AnimationPlayer
 TextureRect
 Camera3D
 Node
@@ -11,4 +13,3 @@ Button
 CanvasLayer
 CenterContainer
 CSGBox3D
-CSGMesh3D

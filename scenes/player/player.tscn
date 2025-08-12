@@ -1,7 +1,63 @@
-[gd_scene load_steps=5 format=3 uid="uid://jdt8vpo4ias0"]
+[gd_scene load_steps=9 format=3 uid="uid://jdt8vpo4ias0"]
 
 [ext_resource type="Script" uid="uid://cx10v2cj0puy5" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="Texture2D" uid="uid://dshqim8prawfy" path="res://assets/2D/kenney_crosshair-pack/PNG/Outline Retina/crosshair001.png" id="2_dovo2"]
+
+[sub_resource type="Animation" id="Animation_lvxji"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Camera:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dovo2"]
+resource_name = "jump"
+length = 0.4
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Camera:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.100045, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.0401152, -0.000891907, 0.0222359), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gmlin"]
+resource_name = "land"
+length = 0.4
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Camera:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.0505098, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lvxji"]
+_data = {
+&"RESET": SubResource("Animation_lvxji"),
+&"jump": SubResource("Animation_dovo2"),
+&"land": SubResource("Animation_gmlin")
+}
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x7p2l"]
 
@@ -15,6 +71,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera" type="Camera3D" parent="head"]
 unique_name_in_owner = true
+
+[node name="cam_animation" type="AnimationPlayer" parent="head"]
+libraries = {
+&"": SubResource("AnimationLibrary_lvxji")
+}
 
 [node name="collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

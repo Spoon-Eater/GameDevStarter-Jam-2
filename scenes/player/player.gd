@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 # nodes references
 @onready var velocity_label: Label = $HUD/debug/MarginContainer/velocity
+@onready var cam_animation: AnimationPlayer = $head/cam_animation
+@onready var head: Node3D = $head
 
 # physics vars
 var speed: float = 8.0
@@ -9,11 +11,14 @@ var speed_acceleration: float = 6.0
 var jump_vel: float = 4.5
 var air_friction: float = 1.25
 var floor_friction: float = 7.0
+var last_velocity = Vector3.ZERO
 
 # headbob vars
 var bob_freq: float = 2.0
 var bob_amplitude: float = 0.04
 var t_bob = 0.0
+
+var cam_tilt_amount: float = 4.0
 
 var mouse_sensitivity: float = 0.0017
 
@@ -25,8 +30,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	# look w/ mouse
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * mouse_sensitivity)
-		%Camera.rotate_x(-event.relative.y * mouse_sensitivity)
-		%Camera.rotation.x = clampf(%Camera.rotation.x, -deg_to_rad(90), deg_to_rad(90 ))
+		head.rotate_x(-event.relative.y * mouse_sensitivity)
+		head.rotation.x = clampf(head.rotation.x, -deg_to_rad(90), deg_to_rad(90 ))
 
 func _physics_process(delta: float) -> void:
 	# gravity
@@ -36,6 +41,7 @@ func _physics_process(delta: float) -> void:
 	# jump
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = jump_vel
+		cam_animation.play("jump")
 
 	# ZQSD movements
 	var input_dir := Input.get_vector("left", "right", "forward", "backward")
@@ -53,9 +59,20 @@ func _physics_process(delta: float) -> void:
 		# air deceleration
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * air_friction)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * air_friction)
+	# cam tilt
+	if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
+		head.rotation.z = lerp(head.rotation.z, -input_dir.x, delta * 0.6)
+	else:
+		head.rotation.z = lerp(head.rotation.z, 0.0, delta * 3.0)
+	head.rotation.z = clamp(head.rotation.z, deg_to_rad(-cam_tilt_amount), deg_to_rad(cam_tilt_amount))
 
 	move_and_slide()
 	velocity_label.text = str(velocity.length())
+
+	if is_on_floor():
+		if last_velocity.y < 0.0:
+			cam_animation.play("land")
+	last_velocity = velocity
 
 # headbob
 	if is_on_floor():

@@ -1,11 +1,11 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1754941647
+::res://::1754976321
 icon.svg::CompressedTexture2D/CompressedTexture2D::4642236424514901096::1754905997::1754906006::1::::<><><>0<>0<>e3ebde011d5016bb7cbf9438338bde5b<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 ::res://assets/::1754906626
 ::res://assets/2D/::1754941717
 font.ttf::FontFile/FontFile::5810482952911688109::1721462574::1754938948::1::::<><><>0<>0<>bc632458c032baf37c29e87e00e93050<>res://.godot/imported/font.ttf-a0b808b2b7e057c1e82cdb9326da0ffa.fontdata::
-::res://assets/2D/bg/::1754941881
-IMG_20250623_221408.jpg::CompressedTexture2D::7293265104000130503::1752784854::1754941890::1::::<><><>0<>0<>771e009b5c466afbbc11415cfa81ecc3<>res://.godot/imported/IMG_20250623_221408.jpg-3859067e023f01bab65ffcf9478e084c.ctex::
+::res://assets/2D/bg/::1754941890
+IMG_20250623_221408.jpg::CompressedTexture2D/CompressedTexture2D::7293265104000130503::1752784854::1754941890::1::::<><><>0<>0<>771e009b5c466afbbc11415cfa81ecc3<>res://.godot/imported/IMG_20250623_221408.jpg-3859067e023f01bab65ffcf9478e084c.ctex::
 ::res://assets/2D/kenney_crosshair-pack/::1754934188
 ::res://assets/2D/kenney_crosshair-pack/PNG/::1617969608
 ::res://assets/2D/kenney_crosshair-pack/PNG/Black/::1754934091
@@ -1216,9 +1216,9 @@ crosshair199.png::CompressedTexture2D/CompressedTexture2D::8727704957696592328::
 crosshair200.png::CompressedTexture2D/CompressedTexture2D::6008423668160496229::1526164798::1754934090::1::::<><><>0<>0<>c2a7d5d95bf82db4f989845568dd0f7d<>res://.godot/imported/crosshair200.png-2dd4af9b0aa34f702f04d232295b250b.ctex::
 ::res://assets/2D/kenney_crosshair-pack/Vector/::1754934090
 crosshairs_vector.svg::CompressedTexture2D/CompressedTexture2D::7819828512148611721::1526165064::1754934090::1::::<><><>0<>0<>80c69877b4077e13d620cf64d9be816b<>res://.godot/imported/crosshairs_vector.svg-1fcf3a72a39d8d507149cf338e283803.ctex::
-::res://assets/2D/material/::1754933386
-env_detail.tres::StandardMaterial3D/StandardMaterial3D::3564956907186371109::1754933386::0::1::::<><><>0<>0<><>::uid://0wftl63aikky::::res://assets/2D/textures/kenney_prototype-textures/PNG/Green/texture_04.png
-floor.tres::StandardMaterial3D/StandardMaterial3D::687393039238968082::1754931832::0::1::::<><><>0<>0<><>::uid://ld4fefb4q5he::::res://assets/2D/textures/kenney_prototype-textures/PNG/Dark/texture_09.png
+::res://assets/2D/material/::1754975140
+env_detail.tres::StandardMaterial3D::3564956907186371109::1754975140::0::1::::<><><>0<>0<><>::uid://0wftl63aikky::::res://assets/2D/textures/kenney_prototype-textures/PNG/Green/texture_04.png
+floor.tres::StandardMaterial3D::687393039238968082::1754975140::0::1::::<><><>0<>0<><>::uid://ld4fefb4q5he::::res://assets/2D/textures/kenney_prototype-textures/PNG/Dark/texture_09.png
 ::res://assets/2D/textures/::1754908352
 ::res://assets/2D/textures/kenney_prototype-textures/::1754908495
 ::res://assets/2D/textures/kenney_prototype-textures/PNG/::1586304502
@@ -1320,17 +1320,17 @@ texture_10.svg::CompressedTexture2D/CompressedTexture2D::618712719616141471::158
 texture_11.svg::CompressedTexture2D/CompressedTexture2D::2734521395642705592::1586305266::1754908495::1::::<><><>0<>0<>420b54c1827bb9b93653f2a839b589be<>res://.godot/imported/texture_11.svg-689e22a7463cab72f1716c8264003c8c.ctex::
 texture_12.svg::CompressedTexture2D/CompressedTexture2D::1489831183091227316::1586305266::1754908495::1::::<><><>0<>0<>faa02c5b0e021a8a7ed3135060a1a9dd<>res://.godot/imported/texture_12.svg-1a777ed841a8bd9f127452f457377428.ctex::
 texture_13.svg::CompressedTexture2D/CompressedTexture2D::3138843401353810782::1586305266::1754908495::1::::<><><>0<>0<>28b8e162d5fde4968b7c7a1bc2ffdbab<>res://.godot/imported/texture_13.svg-151461d2b34447a47121b453473dee7f.ctex::
-::res://assets/2D/tres/::1754940736
-text.tres::LabelSettings::8959500390662262114::1754940736::0::1::::<><><>0<>0<><>::uid://co1v2m681r07b::::res://assets/2D/font.ttf
+::res://assets/2D/tres/::1754975140
+text.tres::LabelSettings::8959500390662262114::1754975140::0::1::::<><><>0<>0<><>::uid://co1v2m681r07b::::res://assets/2D/font.ttf
 ::res://assets/3D/::1754906626
 ::res://scenes/::1754938638
-::res://scenes/main_menu/::1754941668
-Globals.gd::GDScript::6018907715916088851::1754940980::0::1::::<>Node<><>0<>0<><>::
-main_menu.gd::GDScript::330671370092455323::1754941308::0::1::::<>Node<><>0<>0<><>::
-main_menu.tscn::PackedScene::2088204041797152393::1754941668::0::1::::<><><>0<>0<><>::uid://eygdyggcbuc6::::res://scenes/main_menu/main_menu.gd<>uid://co1v2m681r07b::::res://assets/2D/font.ttf<>uid://d0wbwr1lq3sn7::::res://assets/2D/tres/text.tres<>uid://5xtjx0qjngve::::res://scenes/main_menu/menus_manager.gd
-menus_manager.gd::GDScript::2154316939888729374::1754941384::0::1::::<>Node<><>0<>0<><>::
-::res://scenes/player/::1754941686
-player.gd::GDScript::6442415440820668998::1754940347::0::1::::<>CharacterBody3D<><>0<>0<><>::
-player.tscn::PackedScene::639106406903479181::1754941686::0::1::::<><><>0<>0<><>::uid://cx10v2cj0puy5::::res://scenes/player/player.gd<>uid://dshqim8prawfy::::res://assets/2D/kenney_crosshair-pack/PNG/Outline Retina/crosshair001.png
-::res://scenes/testlevel/::1754941668
-test_level.tscn::PackedScene::1566086296879468971::1754941668::0::1::::<><><>0<>0<><>::uid://jdt8vpo4ias0::::res://scenes/player/player.tscn<>uid://j18i67cwsoi1::::res://assets/2D/material/floor.tres<>uid://bq15k4ijjp054::::res://assets/2D/material/env_detail.tres
+::res://scenes/main_menu/::1754975766
+Globals.gd::GDScript/GDScript::6018907715916088851::1754940980::0::1::::<>Node<><>0<>0<><>::
+main_menu.gd::GDScript/GDScript::330671370092455323::1754941308::0::1::::<>Node<><>0<>0<><>::
+main_menu.tscn::PackedScene::2088204041797152393::1754975766::0::1::::<><><>0<>0<><>::uid://eygdyggcbuc6::::res://scenes/main_menu/main_menu.gd<>uid://co1v2m681r07b::::res://assets/2D/font.ttf<>uid://d0wbwr1lq3sn7::::res://assets/2D/tres/text.tres<>uid://5xtjx0qjngve::::res://scenes/main_menu/menus_manager.gd<>uid://db56ammxq0g1t::::res://assets/2D/bg/IMG_20250623_221408.jpg
+menus_manager.gd::GDScript/GDScript::2154316939888729374::1754941384::0::1::::<>Node<><>0<>0<><>::
+::res://scenes/player/::1754976297
+player.gd::GDScript::6442415440820668998::1754976297::0::1::::<>CharacterBody3D<><>0<>0<><>::
+player.tscn::PackedScene::639106406903479181::1754975929::0::1::::<><><>0<>0<><>::uid://cx10v2cj0puy5::::res://scenes/player/player.gd<>uid://dshqim8prawfy::::res://assets/2D/kenney_crosshair-pack/PNG/Outline Retina/crosshair001.png
+::res://scenes/testlevel/::1754975766
+test_level.tscn::PackedScene::1566086296879468971::1754975766::0::1::::<><><>0<>0<><>::uid://jdt8vpo4ias0::::res://scenes/player/player.tscn<>uid://j18i67cwsoi1::::res://assets/2D/material/floor.tres<>uid://bq15k4ijjp054::::res://assets/2D/material/env_detail.tres
