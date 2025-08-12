@@ -1,7 +1,11 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bq15k4ijjp054"]
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bq15k4ijjp054"]
 
-[ext_resource type="Texture2D" uid="uid://0wftl63aikky" path="res://assets/2D/textures/kenney_prototype-textures/PNG/Green/texture_04.png" id="1_qhskm"]
+[ext_resource type="Texture2D" uid="uid://djpfp1an2i54u" path="res://assets/2D/textures/textures/stone/stone.webp" id="1_k5e0l"]
+[ext_resource type="Texture2D" uid="uid://bv3bav8s4chre" path="res://assets/2D/textures/textures/stone/stone_normal.webp" id="2_t14ga"]
 
 [resource]
-albedo_texture = ExtResource("1_qhskm")
+albedo_texture = ExtResource("1_k5e0l")
+normal_enabled = true
+normal_scale = 2.37
+normal_texture = ExtResource("2_t14ga")
 uv1_triplanar = true

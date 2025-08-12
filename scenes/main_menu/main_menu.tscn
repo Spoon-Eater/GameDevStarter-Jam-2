@@ -30,6 +30,7 @@ expand_mode = 2
 
 [node name="main" type="Control" parent="CanvasLayer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -120,6 +121,20 @@ step = 0.01
 value = 0.1
 scrollable = false
 
+[node name="Label2" type="Label" parent="CanvasLayer/options/VBoxContainer"]
+layout_mode = 2
+text = "Field Of View"
+label_settings = SubResource("LabelSettings_ob46e")
+horizontal_alignment = 1
+
+[node name="fov_slider" type="HSlider" parent="CanvasLayer/options/VBoxContainer"]
+layout_mode = 2
+min_value = 75.0
+max_value = 90.0
+step = 0.01
+value = 83.0
+scrollable = false
+
 [node name="back" type="Button" parent="CanvasLayer/options/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_fsom3")
@@ -130,4 +145,5 @@ text = "Back"
 [connection signal="pressed" from="CanvasLayer/main/MarginContainer/VBoxContainer/option" to="menus_manager" method="_on_option_pressed"]
 [connection signal="pressed" from="CanvasLayer/main/MarginContainer/VBoxContainer/quit" to="." method="quit"]
 [connection signal="value_changed" from="CanvasLayer/options/VBoxContainer/sensitivity" to="." method="_on_sensitivity_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/options/VBoxContainer/fov_slider" to="." method="_on_fov_slider_value_changed"]
 [connection signal="pressed" from="CanvasLayer/options/VBoxContainer/back" to="menus_manager" method="_on_back_pressed"]

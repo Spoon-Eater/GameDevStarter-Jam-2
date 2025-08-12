@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 # nodes references
-@onready var velocity_label: Label = $HUD/debug/MarginContainer/velocity
+@onready var velocity_label: Label = $HUD/debug/MarginContainer/VBoxContainer/velocity
 @onready var cam_animation: AnimationPlayer = $head/cam_animation
 @onready var head: Node3D = $head
 
@@ -18,12 +18,18 @@ var bob_freq: float = 2.0
 var bob_amplitude: float = 0.04
 var t_bob = 0.0
 
+# fov vars
+var default_fov: float = 83.0
+var fov_change : float = 1.5
+
 var cam_tilt_amount: float = 4.0
 
 var mouse_sensitivity: float = 0.0017
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	default_fov = Globals.fov
+	%Camera.fov = default_fov
 	mouse_sensitivity = Globals.mouse_sensitivity
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -67,17 +73,23 @@ func _physics_process(delta: float) -> void:
 	head.rotation.z = clamp(head.rotation.z, deg_to_rad(-cam_tilt_amount), deg_to_rad(cam_tilt_amount))
 
 	move_and_slide()
-	velocity_label.text = str(velocity.length())
+	velocity_label.text = "velocity.length() : " + str(velocity.length())
 
+	# camera landing animation
 	if is_on_floor():
 		if last_velocity.y < 0.0:
 			cam_animation.play("land")
 	last_velocity = velocity
 
-# headbob
+	# headbob
 	if is_on_floor():
 		t_bob += delta * velocity.length()
 	%Camera.transform.origin = headbob(t_bob)
+
+	# fov changes
+	var clamped_velocity: float = clamp(velocity.length(), 0.5, speed * 2)
+	var target_fov: float = default_fov + fov_change * clamped_velocity
+	%Camera.fov = lerp(%Camera.fov, target_fov, delta * 8.0)
 
 func headbob(time) -> Vector3:
 	var position: Vector3 = Vector3.ZERO

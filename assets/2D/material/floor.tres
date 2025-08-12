@@ -1,9 +1,12 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://j18i67cwsoi1"]
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://j18i67cwsoi1"]
 
-[ext_resource type="Texture2D" uid="uid://ld4fefb4q5he" path="res://assets/2D/textures/kenney_prototype-textures/PNG/Dark/texture_09.png" id="1_bjape"]
+[ext_resource type="Texture2D" uid="uid://ddy8x5yn1vxcb" path="res://assets/2D/textures/textures/ground/ground.jpg" id="1_bjape"]
+[ext_resource type="Texture2D" uid="uid://beuxjieps52gy" path="res://assets/2D/textures/textures/ground/ground_normal.jpg" id="2_t675j"]
 
 [resource]
 albedo_texture = ExtResource("1_bjape")
-metallic = 1.0
-roughness = 0.75
+metallic_specular = 0.0
+normal_enabled = true
+normal_scale = 3.74
+normal_texture = ExtResource("2_t675j")
 uv1_triplanar = true

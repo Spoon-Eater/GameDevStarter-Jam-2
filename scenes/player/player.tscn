@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://jdt8vpo4ias0"]
+[gd_scene load_steps=10 format=3 uid="uid://jdt8vpo4ias0"]
 
 [ext_resource type="Script" uid="uid://cx10v2cj0puy5" path="res://scenes/player/player.gd" id="1_8afob"]
-[ext_resource type="Texture2D" uid="uid://dshqim8prawfy" path="res://assets/2D/kenney_crosshair-pack/PNG/Outline Retina/crosshair001.png" id="2_dovo2"]
+[ext_resource type="Script" uid="uid://d4ahqcstlxots" path="res://scenes/player/fps_meter.gd" id="2_gmlin"]
+[ext_resource type="Script" uid="uid://dcjdq4q7tkv14" path="res://scenes/player/crosshair.gd" id="3_gmlin"]
 
 [sub_resource type="Animation" id="Animation_lvxji"]
 length = 0.001
@@ -105,10 +106,17 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="velocity" type="Label" parent="HUD/debug/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/debug/MarginContainer"]
+layout_mode = 2
+
+[node name="fps" type="Label" parent="HUD/debug/MarginContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_gmlin")
+
+[node name="velocity" type="Label" parent="HUD/debug/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-visible_characters = 4
+visible_characters = 24
 
 [node name="crosshair" type="CenterContainer" parent="HUD"]
 anchors_preset = 8
@@ -116,15 +124,8 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -108.0
-offset_top = -93.0
-offset_right = 108.0
-offset_bottom = 93.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="HUD/crosshair"]
-layout_mode = 2
-texture = ExtResource("2_dovo2")
-expand_mode = 1
-stretch_mode = 3
+script = ExtResource("3_gmlin")
+dot_radius = 2.0
+dot_outline_radius = 3.1

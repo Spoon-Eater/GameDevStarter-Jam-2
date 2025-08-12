@@ -8,3 +8,6 @@ func play() -> void:
 
 func _on_sensitivity_value_changed(value: float) -> void:
 	Globals.mouse_sensitivity = value/100
+
+func _on_fov_slider_value_changed(value: float) -> void:
+	Globals.fov = value
