@@ -5,9 +5,3 @@ res://assets/2D/tres/text.tres
 res://scenes/player/player.gd
 res://scenes/testlevel/test_level.tscn
 res://scenes/main_menu/main_menu.tscn
-res://scenes/main_menu/main_menu.gd
-res://scenes/main_menu/Globals.gd
-res://scenes/fps_meter/fps_meter.tscn
-res://scenes/fps_meter/fps_meter.gd
-res://scenes/player/fps_meter.gd
-res://scenes/player/crosshair.gd

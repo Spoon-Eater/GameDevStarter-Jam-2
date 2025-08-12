@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://jdt8vpo4ias0"]
+[gd_scene load_steps=11 format=3 uid="uid://jdt8vpo4ias0"]
 
 [ext_resource type="Script" uid="uid://cx10v2cj0puy5" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://d4ahqcstlxots" path="res://scenes/player/fps_meter.gd" id="2_gmlin"]
@@ -9,7 +9,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("%Camera:rotation")
+tracks/0/path = NodePath("Camera:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -26,7 +26,7 @@ step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("%Camera:rotation")
+tracks/0/path = NodePath("Camera:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -43,7 +43,7 @@ step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("%Camera:rotation")
+tracks/0/path = NodePath("Camera:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -62,28 +62,41 @@ _data = {
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x7p2l"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gmlin"]
+height = 1.4
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8afob"]
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_8afob")
 
-[node name="head" type="Node3D" parent="."]
+[node name="headpivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
-[node name="Camera" type="Camera3D" parent="head"]
+[node name="head" type="Node3D" parent="headpivot"]
+
+[node name="Camera" type="Camera3D" parent="headpivot/head"]
 unique_name_in_owner = true
 
-[node name="cam_animation" type="AnimationPlayer" parent="head"]
+[node name="cam_animation" type="AnimationPlayer" parent="headpivot/head"]
 libraries = {
 &"": SubResource("AnimationLibrary_lvxji")
 }
 
-[node name="collision" type="CollisionShape3D" parent="."]
+[node name="standing_coll" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_x7p2l")
 
+[node name="crouching_coll" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+shape = SubResource("CapsuleShape3D_gmlin")
+
+[node name="ceiling_detector" type="RayCast3D" parent="."]
+target_position = Vector3(0, 2, 0)
+
 [node name="body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_8afob")
 
 [node name="HUD" type="CanvasLayer" parent="."]
@@ -118,6 +131,15 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 20
 visible_characters = 24
 
+[node name="slide_timer" type="Label" parent="HUD/debug/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="slide_speed" type="Label" parent="HUD/debug/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="g_normal" type="Label" parent="HUD/debug/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
 [node name="crosshair" type="CenterContainer" parent="HUD"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -129,3 +151,6 @@ grow_vertical = 2
 script = ExtResource("3_gmlin")
 dot_radius = 2.0
 dot_outline_radius = 3.1
+
+[node name="ground_normal" type="RayCast3D" parent="."]
+target_position = Vector3(0, -0.5, 0)

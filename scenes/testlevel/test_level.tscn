@@ -62,3 +62,13 @@ material = ExtResource("3_se05g")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.5, 0.5, 5.5)
 size = Vector3(3, 1, 6)
 material = ExtResource("3_se05g")
+
+[node name="crate5" type="CSGBox3D" parent="map/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0.258819, -0.965926, 0, 0.965926, 0.258819, 1, 1.13133e-08, -4.2222e-08, 12.9148, 0.852952, -2.5)
+size = Vector3(3, 1, 11)
+material = ExtResource("3_se05g")
+
+[node name="crate6" type="CSGBox3D" parent="map/CSGCombiner3D"]
+transform = Transform3D(-1, -2.26267e-08, 8.44439e-08, 2.26267e-08, 0.866025, 0.5, -8.44439e-08, 0.5, -0.866025, 12.9148, 2.46472, -8.05111)
+size = Vector3(3, 1, 8)
+material = ExtResource("3_se05g")
